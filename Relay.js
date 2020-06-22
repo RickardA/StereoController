@@ -4,9 +4,10 @@ const EventEmitter = require('events')
 
 module.exports = class Relay extends EventEmitter {
 
-    constructor(pin,name,pinCode,mac) {
+    constructor(pin,name,pinCode,mac,inverted) {
         super()
         this.name = name
+        this.inverted = inverted
         this.accessoryUuid = hap.uuid.generate(name)
         this.accessory = new hap.Accessory(name, this.accessoryUuid)
         this.switchService = new hap.Service.Switch(this.name)
@@ -36,20 +37,32 @@ module.exports = class Relay extends EventEmitter {
     }
 
     toggleRelay(value) {
-        this.relay.writeSync(value ? 1 : 0)
+        if(this.inverted) {
+            this.relay.writeSync(value ? 0 : 1)
+        } else {
+            this.relay.writeSync(value ? 1 : 0)
+        }
         this.emit('toggled',this.currentSwitchState,this.name)
     }
 
     turnOffRelay() {
         console.log('turn off relay')
-        this.relay.writeSync(0)
+        if(this.inverted) {
+            this.relay.writeSync(1)
+        } else {
+            this.relay.writeSync(0)
+        }
         this.currentSwitchState = false
         this.onCharacteristic.updateValue(false)
     }
 
     turnOnRelay() {
         console.log('turn off relay')
-        this.relay.writeSync(1)
+        if(this.inverted) {
+            this.relay.writeSync(0)
+        } else {
+            this.relay.writeSync(1)
+        }
         this.currentSwitchState = true
         this.onCharacteristic.updateValue(true)
     }

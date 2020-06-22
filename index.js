@@ -7,10 +7,10 @@ const Characteristic = hap.Characteristic
 const CharacteristicEventTypes = hap.CharacteristicEventTypes
 const Service = hap.Service
 
-let relay1 = new Relay(4,'relay1','678-90-876','54:52:00:00:7f:bb')
-let relay2 = new Relay(17,'relay2','678-90-877','54:52:00:50:43:76')
-let relay3 = new Relay(27,'relay3','678-90-878','54:52:00:9b:54:39')
-let relay4 = new Relay(22,'relay4','678-90-879','54:52:00:4c:25:fd')
+let relay1 = new Relay(4,'relay1','678-90-876','54:52:00:00:7f:bb',true)
+let relay2 = new Relay(17,'relay2','678-90-877','54:52:00:50:43:76',true)
+let relay3 = new Relay(27,'relay3','678-90-878','54:52:00:9b:54:39',false)
+let relay4 = new Relay(22,'relay4','678-90-879','54:52:00:4c:25:fd',false)
 
 let relays = [
     relay1,
