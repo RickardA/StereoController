@@ -11,7 +11,7 @@ module.exports = class Relay extends EventEmitter {
         this.accessoryUuid = hap.uuid.generate(name)
         this.accessory = new hap.Accessory(name, this.accessoryUuid)
         this.switchService = new hap.Service.Switch(this.name)
-        this.currentSwitchState = false
+        this.currentSwitchState = this.inverted ? true : false
         this.relay = new Gpio(pin,'out')
         this.onCharacteristic = this.switchService.getCharacteristic(hap.Characteristic.On)
 
