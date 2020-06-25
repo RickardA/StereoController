@@ -20,7 +20,7 @@ Make sure that your Node.js version is the same if you type "node -v" or "sudo n
 
 If not you have to remove the node and npm folder from the /usr/local/bin and then run these two commands.
 
-```sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/node" "/usr/local/bin/node"```
+```sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/node" "/usr/local/bin/node"```<br>
 ```sudo ln -s "$NVM_DIR/versions/node/$(nvm version)/bin/npm" "/usr/local/bin/npm"```
 
 Once you have made sure that the node version are the same, you have to get the path to your installed node version.
