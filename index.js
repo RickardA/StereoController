@@ -1,3 +1,5 @@
+"use strict"
+
 const Gpio = require('onoff').Gpio
 const hap = require('hap-nodejs')
 const Relay = require('./Relay')

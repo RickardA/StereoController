@@ -1,0 +1,12 @@
+[Unit]
+Description=Stereo Controller Service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/pi/Desktop/StereoControllers
+ExecStart=/home/pi/.nvm/versions/node/v14.4.0/bin/node index.js
+Restart=on-failure
+User=pi
+
+[Install]
+WantedBy=multi-user.target
