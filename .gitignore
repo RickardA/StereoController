@@ -1,3 +1,6 @@
+#HAP nodejs (Apple HomeKit integration)
+persist/
+
 # Logs
 logs
 *.log
